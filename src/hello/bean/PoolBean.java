@@ -10,7 +10,7 @@ import javax.faces.bean.ViewScoped;
 public class PoolBean {
 	
 	private int count = 0;
-	private Date data;
+	private Date data = new Date();
 	
 	public void incrementar() {
 		count+= count + 1;

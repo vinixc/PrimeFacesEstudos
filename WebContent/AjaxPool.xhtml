@@ -11,12 +11,20 @@
 
 <body> 
 	<h:form id="form">
+		<p:commandButton type="button" value="Iniciar" onclick="PF('poolContador').start();PF('poolData').start();"></p:commandButton>
+		<p:commandButton type="button" value="Parar" onclick="PF('poolContador').stop();PF('poolData').stop();"></p:commandButton>
+		<br/>
+		<br/>
 		<h:outputText id="txtData" value="#{poolBean.data}"></h:outputText>
 		<br/>
 		<h:outputText id="txtContador" value="#{poolBean.count}"></h:outputText>
 		
-		<p:poll interval="1" listener="#{poolBean.novaData}" update="txtData"></p:poll>
-		<p:poll interval="1" listener="#{poolBean.incrementar}" update="txtContador"></p:poll>
+		<p:poll interval="3" listener="#{poolBean.novaData}"
+		 update="txtData" autoStart="false" widgetVar="poolData"></p:poll>
+		 
+		<p:poll interval="3" listener="#{poolBean.incrementar}"
+		 update="txtContador" autoStart="false" widgetVar="poolContador"></p:poll>
+		 
 	</h:form>	
 </body> 
 </html>
