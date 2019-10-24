@@ -1,0 +1,53 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"> 
+
+<h:head>
+
+</h:head> 
+
+<body>
+	<!-- Ajax Status Simples -->
+	<!-- 
+	<p:ajaxStatus style="width:16px;heigth:16px" id="ajaxStatusPanel">
+		<f:facet name="start">
+			<h:graphicImage value="img/Spinner-0.9s-141px.svg"></h:graphicImage>
+		</f:facet>
+		<f:facet name="complete">
+			<h:outputText value=""></h:outputText>
+		</f:facet>
+	</p:ajaxStatus> 
+	
+	 -->
+	 
+	 <!-- Ajax Status Customizado -->
+	<p:ajaxStatus onstart="PF('statusDialog').show();" onsuccess="PF('statusDialog').hide();"/>
+	
+	<p:dialog modal="true" widgetVar="statusDialog" header="Status" draggable="false" closable="false"
+	style="width:16px;heigth:16px"
+	showEffect="explode" hideEffect="bounce">
+		<p:outputPanel autoUpdate="true">
+		<h:graphicImage value="img/Spinner-0.9s-141px.svg"></h:graphicImage>
+		</p:outputPanel>
+	</p:dialog>
+	
+	<h:form id="form">
+		<p:panel id="panel" header="Cadastro de Funcionario">
+		<p:messages id="msgResultado"></p:messages>
+			<h:panelGrid columns="3">
+				<h:outputLabel for="nome" value="Nome: "></h:outputLabel>
+				<p:inputText id="nome" value="#{funcionarioBean.nome}" required="true"></p:inputText>
+				<p:message for="nome" id="msgValidacaoNome"></p:message>
+				<h:outputLabel for="funcao" value="Função: "></h:outputLabel>
+				<p:inputText id="funcao" value="#{funcionarioBean.funcao}" required="true"></p:inputText>
+				<p:message for="funcao" id="msgValidacaoFuncao"></p:message>
+			</h:panelGrid>
+			<p:commandButton id="btnSalvar" value="Salvar" update="panel"
+			 action="#{funcionarioBean.salvarFuncionario()}" global="true"></p:commandButton>
+		</p:panel>
+	</h:form>
+</body> 
+</html>

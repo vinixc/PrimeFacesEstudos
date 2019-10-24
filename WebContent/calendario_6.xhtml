@@ -1,0 +1,73 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+	<script type="text/javascript">
+		PrimeFaces.locales['pt_BR'] = {
+			closeText : 'Fechar',
+			prevText : 'Anterior',
+			nextText : 'Próximo',
+			currentText : 'Começo',
+			monthNames : [ 'Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio',
+					'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro',
+					'Novembro', 'Dezembro' ],
+			monthNamesShort : [ 'Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun',
+					'Jul', 'Ago', 'Set', 'Out', 'Nov', 'Dez' ],
+			dayNames : [ 'Domingo', 'Segunda', 'Terça', 'Quarta', 'Quinta',
+					'Sexta', 'Sábado' ],
+			dayNamesShort : [ 'Dom', 'Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sáb' ],
+			dayNamesMin : [ 'D', 'S', 'T', 'Q', 'Q', 'S', 'S' ],
+			weekHeader : 'Semana',
+			firstDay : 1,
+			isRTL : false,
+			showMonthAfterYear : false,
+			yearSuffix : '',
+			timeOnlyTitle : 'Só Horas',
+			timeText : 'Tempo',
+			hourText : 'Hora',
+			minuteText : 'Minuto',
+			secondText : 'Segundo',
+			currentText : 'Data Atual',
+			ampm : false,
+			month : 'Mês',
+			week : 'Semana',
+			day : 'Dia',
+			allDayText : 'Todo Dia'
+		};
+	</script>
+</h:head>
+<body>
+	<h:form>
+	<h:panelGrid columns="2">
+		<h:outputText value="Calendario com Botões"></h:outputText>
+		<p:calendar pattern="dd/MM/yyyy" value="#{data.data}" locale="pt_BR"
+			showButtonPanel="true" />
+
+		<h:outputText value="Calendario com navegação"></h:outputText>
+		<p:calendar pattern="dd/MM/yyyy" value="#{data.data}" locale="pt_BR"
+			display="inline" navigator="true" />
+
+		<h:outputText value="Calendario com varias paginas"></h:outputText>
+		<p:calendar pattern="dd/MM/yyyy" value="#{data.data}" locale="pt_BR"
+			pages="3" />
+
+		<h:outputText value="Calendario com Fade"></h:outputText>
+		<p:calendar pattern="dd/MM/yyyy" value="#{data.data}" locale="pt_BR"
+			effect="fadeIn"/>
+
+		<h:outputText value="Calendario com Slide Horizontal"></h:outputText>
+		<p:calendar pattern="dd/MM/yyyy" value="#{data.data}" locale="pt_BR"
+			effect="slide"/>
+
+		<h:outputText value="Calendario com Slide Vertical"></h:outputText>
+		<p:calendar pattern="dd/MM/yyyy" value="#{data.data}" locale="pt_BR"
+			effect="slideDown"/>
+
+	</h:panelGrid>
+	</h:form>
+</body>
+</html>
