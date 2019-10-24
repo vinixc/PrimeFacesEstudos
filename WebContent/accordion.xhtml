@@ -11,23 +11,33 @@
 
 <body> 
 	<h:form id="form">
-		<p:accordionPanel autoHeigth="false">
+		<p:growl id="growl" showDetail="true"/>
+	
+		<p:accordionPanel autoHeigth="false" multiple="true" dynamic="true" cache="false"
+		>
+		
+		<p:ajax event="tabChange" listener="#{accordionBean.onTabChange}" update="form:growl"></p:ajax>
+		
+		
 			<p:tab title="Novidades Visual Studio">
 				<h:panelGrid cellpadding="10">
 					<h:outputText value="Microsoft lança Visual Studio 2019 RC com novo layout
 					e carregamento mais rápido!."/>
 				</h:panelGrid>
+				<h:outputText value="#{poolBean.novaData}"></h:outputText>
 			</p:tab>
 			
-			<p:tab title="Novidades DevMedia">
+			<p:tab title="Novidades DevMedia" disabled="true">
 				<h:panelGrid cellpadding="10">
 					<h:outputText value="DevMedia reabre Canal com aulas de Infra"/>
 				</h:panelGrid>
+				<h:outputText value="#{poolBean.novaData}"></h:outputText>
 			</p:tab>
 			<p:tab title="Novidades Windows Phone">
 				<h:panelGrid cellpadding="10">
 					<h:outputText value="Microsoft lança Windows Phone 7.5 codenome 'Mango'"/>
 				</h:panelGrid>
+				<h:outputText value="#{poolBean.novaData}"></h:outputText>
 			</p:tab>
 		</p:accordionPanel>
 	</h:form>	

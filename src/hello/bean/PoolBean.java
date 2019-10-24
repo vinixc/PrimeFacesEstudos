@@ -19,6 +19,10 @@ public class PoolBean {
 	public Date novaData() {
 		return data = new Date();
 	}
+	
+	public Date getNovaData() {
+		return data = new Date();
+	}
 
 	public int getCount() {
 		return count;
