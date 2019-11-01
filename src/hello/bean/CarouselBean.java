@@ -13,6 +13,8 @@ import hello.entidade.Produto;
 public class CarouselBean {
 	List<Produto> produtos;
 	
+	Produto produtoSelecionado;
+	
 	public CarouselBean() {
 		produtos = new ArrayList<Produto>();
 		
@@ -27,6 +29,18 @@ public class CarouselBean {
 
 	public List<Produto> getProdutos() {
 		return produtos;
+	}
+
+	public Produto getProdutoSelecionado() {
+		return produtoSelecionado;
+	}
+
+	public void setProdutoSelecionado(Produto produtoSelecionado) {
+		this.produtoSelecionado = produtoSelecionado;
+	}
+
+	public void setProdutos(List<Produto> produtos) {
+		this.produtos = produtos;
 	}
 	
 }

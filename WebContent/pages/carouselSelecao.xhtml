@@ -1,0 +1,42 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"> 
+
+<h:head>
+
+</h:head> 
+
+<body> 
+	<h:form id="form">
+		<h3>Carousel Selecionavel</h3>
+		
+		<p:carousel value="#{carouselBean.produtos}" var="produto">
+			<h:panelGrid columns="1" cellpadding="4">
+				<h:outputText value="Nome   #{produto.nome}"></h:outputText>
+			</h:panelGrid>
+			
+			<p:commandLink id="cmd" update=":form:detalhesProduto :form:outLabel" 
+			oncomplete="PF('produtoDialog').show();" title="Visualizar Produtos">
+				<h:outputLabel value="Selecione"/>
+				<f:setPropertyActionListener value="#{produto}" target="#{carouselBean.produtoSelecionado}"></f:setPropertyActionListener>
+			</p:commandLink>
+		</p:carousel>
+		
+		<p:outputLabel id="outLabel" value="Produto selecionado : #{carouselBean.produtoSelecionado.nome}"></p:outputLabel>
+		
+		<p:dialog id="dialog" header="Detalhes do produto" 
+		showEffect="fade" hideEffect="fade" modal="true" widgetVar="produtoDialog">
+			<p:outputPanel id="detalhesProduto">
+				<h:panelGrid columns="1" cellpadding="4">
+					<h:outputText value="Nome   #{carouselBean.produtoSelecionado.nome}"></h:outputText>
+					<h:outputText value="Valor  #{carouselBean.produtoSelecionado.valor}"></h:outputText>
+					<h:outputText value="Total de Vendas: #{carouselBean.produtoSelecionado.totalVendas}"></h:outputText>
+				</h:panelGrid>
+			</p:outputPanel>
+		</p:dialog>
+	</h:form>	
+</body> 
+</html>
