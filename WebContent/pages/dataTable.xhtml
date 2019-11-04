@@ -34,11 +34,27 @@
 				<h:outputText value="#{produto.totalVendas}"/>
 			</p:column>
 			
-			<p:column headerText="Categoria" sortBy="#{produto.categoria}" filterBy="#{produto.categoria}" filterMatchMode="endsWith">
+			<p:column headerText="Categoria" sortBy="#{produto.categoria}" 
+			 filterBy="#{produto.categoria}" filterMatchMode="exact"
+			 filterOptions="#{dataGridbean.listaCategoria}">
 				<h:outputText value="#{produto.categoria}"/>
 			</p:column>
 			
+			<p:column>
+				<p:commandButton id="selectButton" update=":form:detalhes" oncomplete="PF('produto').show()" icon="ui-icon-search" title="Detalhes">
+					<f:setPropertyActionListener value="#{produto}" target="#{dataGridbean.produtoSelecionado}"/>
+				</p:commandButton>
+			</p:column>
+			
 		</p:dataTable>
+		
+		<p:dialog header="Detalhes do Produto" widgetVar="produto" resizable="false" id="produtoDialog"
+		showEffect="fade" hideEffect="explode" modal="true">
+			<h:panelGrid id="detalhes" columns="2" >
+				<h:outputText value="Nome"/>
+				<h:outputText value="#{dataGridbean.produtoSelecionado.nome}"/>
+			</h:panelGrid>
+		</p:dialog>
 	</h:form>	
 </body> 
 </html>
