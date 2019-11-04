@@ -19,11 +19,11 @@ public class TableContextBean {
 	public TableContextBean() {
 		produtos = new ArrayList<Produto>();
 		
-		produtos.add(new Produto("Laranja", 2.5f, 30));
-		produtos.add(new Produto("Maça", 1.8f, 15));
-		produtos.add(new Produto("Uva", 1.5f, 25));
-		produtos.add(new Produto("Melão", 3.7f, 10));
-		produtos.add(new Produto("Banana", 1.8f, 32));
+		produtos.add(new Produto("Laranja", 2.5f, 30, "Fruta"));
+		produtos.add(new Produto("Maça", 1.8f, 15, "Fruta"));
+		produtos.add(new Produto("Uva", 1.5f, 25, "Fruta"));
+		produtos.add(new Produto("Melão", 3.7f, 10, "Fruta"));
+		produtos.add(new Produto("Banana", 1.8f, 32, "Fruta"));
 	}
 	
 	public void removerProduto() {

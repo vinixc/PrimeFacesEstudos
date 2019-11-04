@@ -19,16 +19,16 @@ public class DataGridbean {
 	public DataGridbean() {
 		produtos = new ArrayList<Produto>(); 
 		
-		produtos.add(new Produto("PS3", 999, 250));
-		produtos.add(new Produto("PS4", 1999, 564));
-		produtos.add(new Produto("XBOX", 999, 245));
-		produtos.add(new Produto("WII", 1939, 34));
-		produtos.add(new Produto("IPHONE 5", 1499, 2234));
-		produtos.add(new Produto("IPHONE 6", 3999, 1234));
-		produtos.add(new Produto("IPHONE 7", 4999, 567));
-		produtos.add(new Produto("NOTEBOOK DELL i7", 4499, 340));
-		produtos.add(new Produto("NOTEBOOK SONY ", 2499, 234));
-		produtos.add(new Produto("LENOVO ", 1199, 455));
+		produtos.add(new Produto("PS3", 999, 250, "Console"));
+		produtos.add(new Produto("PS4", 1999, 564, "Console"));
+		produtos.add(new Produto("XBOX", 999, 245, "Console"));
+		produtos.add(new Produto("WII", 1939, 34, "Console"));
+		produtos.add(new Produto("IPHONE 5", 1499, 2234, "Mobile/Tablet"));
+		produtos.add(new Produto("IPHONE 6", 3999, 1234, "Mobile/Tablet"));
+		produtos.add(new Produto("IPHONE 7", 4999, 567, "Mobile/Tablet"));
+		produtos.add(new Produto("NOTEBOOK DELL i7", 4499, 340, "Notebook"));
+		produtos.add(new Produto("NOTEBOOK SONY ", 2499, 234, "Notebook"));
+		produtos.add(new Produto("NOTEBOOK LENOVO ", 1199, 455, "Notebook"));
 
 	}
 
