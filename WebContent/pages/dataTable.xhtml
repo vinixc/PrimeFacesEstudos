@@ -1,0 +1,39 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"> 
+
+<h:head>
+
+</h:head> 
+
+<body> 
+	<h:form id="form">
+		<p:dataTable value="#{dataGridbean.produtos}" var="produto"
+		paginator="true" rows="3"
+		paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+		rowsPerPageTemplate="3,5,10">
+		
+			<f:facet name="header">
+				Lista de produtos
+			</f:facet>
+			
+			<f:facet name="footer">
+				Produtos Comercializados por ViniCarv
+			</f:facet>
+			
+			<p:column headerText="Nome">
+				<h:outputText value="#{produto.nome}"/>
+			</p:column>
+			<p:column headerText="Valor">
+				<h:outputText value="#{produto.valor}"/>
+			</p:column>
+			<p:column headerText="Total Vendas">
+				<h:outputText value="#{produto.totalVendas}"/>
+			</p:column>
+		</p:dataTable>
+	</h:form>	
+</body> 
+</html>
