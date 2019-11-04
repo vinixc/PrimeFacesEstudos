@@ -1,0 +1,31 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"> 
+
+<h:head>
+
+</h:head> 
+
+<body> 
+	<h:form id="form">
+	<p:growl id="message"></p:growl>
+		<p:imageSwitch effect="zoom" id="images" widgetVar="gallery" slideshowAuto="false" style="width:400px">
+			<p:graphicImage value="/img/item1.jpg" />
+			<p:graphicImage value="/img/item2.jpg" />
+			<p:graphicImage value="/img/item3.jpg" />
+			<p:graphicImage value="/img/item4.png" />
+			<p:graphicImage value="/img/item5.jpg" />
+			<p:graphicImage value="/img/item6.jpg" />
+		</p:imageSwitch>
+		
+		<p:contextMenu for="images">
+			<p:menuitem value="Anterior" onclick="PF('gallery').previous()" icon="ui-icon-triangle-1-w"/>
+			<p:menuitem value="Próximo" onclick="PF('gallery').next()" icon="ui-icon-triangle-1-e"/>
+			<p:menuitem value="Enviar para o Servidor" update="message" actionListener="#{contextMenuGalleryBean.enviar}"></p:menuitem>
+		</p:contextMenu>
+	</h:form>	
+</body> 
+</html>
