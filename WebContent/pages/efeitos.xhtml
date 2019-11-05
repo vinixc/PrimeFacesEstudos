@@ -1,0 +1,89 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"> 
+
+<h:head>
+
+</h:head> 
+
+<body> 
+	<h:form id="form">
+	<h:panelGrid columns="5">
+		<p:panel header="Blind ">
+			<h:outputText value="click"/>
+			<p:effect event="click" type="clip">
+				<f:param name="direction" value="'horizontal'"></f:param>
+			</p:effect>
+		</p:panel>
+		
+		<p:panel header="dblclick">
+			<h:outputText value="Duplo click"/>
+			<p:effect event="dblclick" type="blind">
+				<f:param name="direction" value="'horizontal'"></f:param>
+			</p:effect>
+		</p:panel>
+		
+		<p:panel header="Mouser over">
+			<h:outputText value="Mouse over"/>
+			<p:effect event="mouseover" type="blind">
+				<f:param name="direction" value="'horizontal'"></f:param>
+			</p:effect>
+		</p:panel>
+		
+		<p:panel header="Mouser Down">
+			<h:outputText value="Mouse Down"/>
+			<p:effect event="mousedown" type="blind">
+				<f:param name="direction" value="'horizontal'"></f:param>
+			</p:effect>
+		</p:panel>
+		
+		<p:panel header="Mouser Up">
+			<h:outputText value="Mouse Up"/>
+			<p:effect event="mouseup" type="blind">
+				<f:param name="direction" value="'horizontal'"></f:param>
+			</p:effect>
+		</p:panel>
+		
+		
+		<p:panel header="Blind ">
+			<h:outputText value="click"/>
+			<p:effect event="click" type="clip">
+				<f:param name="direction" value="'horizontal'"></f:param>
+			</p:effect>
+		</p:panel>
+		
+		<p:panel header="dblclick">
+			<h:outputText value="Duplo click"/>
+			<p:effect event="dblclick" type="clip">
+				<f:param name="direction" value="'horizontal'"></f:param>
+			</p:effect>
+		</p:panel>
+		
+		<p:panel header="Mouser over">
+			<h:outputText value="Mouse over"/>
+			<p:effect event="mouseover" type="clip">
+				<f:param name="direction" value="'horizontal'"></f:param>
+			</p:effect>
+		</p:panel>
+		
+		<p:panel header="Mouser Down">
+			<h:outputText value="Mouse Down"/>
+			<p:effect event="mousedown" type="clip">
+				<f:param name="direction" value="'horizontal'"></f:param>
+			</p:effect>
+		</p:panel>
+		
+		<p:panel header="Mouser Up">
+			<h:outputText value="Mouse Up"/>
+			<p:effect event="mouseup" type="clip">
+				<f:param name="direction" value="'horizontal'"></f:param>
+			</p:effect>
+		</p:panel>
+		
+		</h:panelGrid>
+	</h:form>	
+</body> 
+</html>
