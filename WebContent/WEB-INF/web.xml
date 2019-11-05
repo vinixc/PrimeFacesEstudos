@@ -22,4 +22,13 @@
 		<param-name>primefaces.PRIVATE_CAPTCHA_KEY</param-name>
 		<param-value>6Ld1gcAUAAAAAMBfa7ir28q4OBIrDWmZm5lrWzag</param-value>
 	</context-param>
+	
+	<filter>
+		<filter-name>Primefaces FileUpload Filter</filter-name>
+		<filter-class>org.primefaces.webapp.filter.FileUploadFilter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>Primefaces FileUpload Filter</filter-name>
+		<servlet-name>Faces Servlet</servlet-name>
+	</filter-mapping>
 </web-app>
