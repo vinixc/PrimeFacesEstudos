@@ -1,0 +1,83 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"> 
+
+<h:head>
+
+</h:head> 
+
+<body> 
+	<h:form id="form">
+	<p:growl id="growl" showDetail="true"/>
+		<p:dataTable value="#{dataGridbean.produtos}" var="produto"
+		paginator="true" rows="10"
+		paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+		rowsPerPageTemplate="3,5,10"
+		rowKey="#{produto.id}" selection="#{dataGridbean.produtoSelecionado}"
+		resizableColumns="true"
+		editable="true">
+		
+			<f:facet name="header">
+				Lista de produtos
+			</f:facet>
+			
+			<f:facet name="footer">
+				Produtos Comercializados por ViniCarv
+			</f:facet>
+			
+			<p:column style="width:18px">
+				<p:rowToggler></p:rowToggler>
+			</p:column>
+			<p:column headerText="Nome" sortBy="#{produto.nome}" filterBy="#{produto.nome}" filterMatchMode="contains">
+				<p:cellEditor>
+				<f:facet name="output">
+					<h:outputText value="#{produto.nome}"/>
+				</f:facet>
+				<f:facet name="input">
+					<h:inputText value="#{produto.nome}"/>
+				</f:facet>
+				</p:cellEditor>
+			</p:column>
+			<p:column headerText="Valor" sortBy="#{produto.valor}" filterBy="#{produto.valor}" filterMatchMode="startsWith">
+				<p:cellEditor>
+				<f:facet name="output">
+					<h:outputText value="#{produto.valor}"/>
+				</f:facet>
+				<f:facet name="input">
+					<h:inputText value="#{produto.valor}"/>
+				</f:facet>
+				</p:cellEditor>
+			</p:column>
+			<p:column headerText="Total Vendas" sortBy="#{produto.totalVendas}" filterBy="#{produto.totalVendas}" filterMatchMode="exact">
+				<h:outputText value="#{produto.totalVendas}"/>
+			</p:column>
+
+			<p:column headerText="Categoria" sortBy="#{produto.categoria}" 
+			 filterBy="#{produto.categoria}" filterMatchMode="exact"
+			 filterOptions="#{dataGridbean.listaCategoria}">
+				<p:cellEditor>
+				<f:facet name="output">
+					<h:outputText value="#{produto.categoria}"/>
+				</f:facet>
+				<f:facet name="input">
+					<h:selectOneMenu value="#{produto.categoria}">
+						<f:selectItems value="#{dataGridbean.listaCategoria}" var="categ" itemValue="#{categ}" itemLabel="#{categ}"></f:selectItems>
+					</h:selectOneMenu>
+				</f:facet>
+				</p:cellEditor>
+			</p:column>
+			
+			<p:column headerText="Editar">
+				<p:rowEditor/>
+			</p:column>
+			
+			<p:rowExpansion>
+				Nome do Produto: #{produto.nome}, Nome da Categoria: #{produto.categoria}
+			</p:rowExpansion>
+		</p:dataTable>
+	</h:form>	
+</body> 
+</html>
