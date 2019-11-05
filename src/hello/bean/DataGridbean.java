@@ -17,20 +17,23 @@ public class DataGridbean {
 	private SelectItem[] listaCategoria;
 	private Produto produtoSelecionado;
 	
+	private Produto[] produtosSelecionado;
+
+	
 
 	public DataGridbean() {
 		produtos = new ArrayList<Produto>(); 
 		
-		produtos.add(new Produto("PS3", 999, 250, "Console"));
-		produtos.add(new Produto("PS4", 1999, 564, "Console"));
-		produtos.add(new Produto("XBOX", 999, 245, "Console"));
-		produtos.add(new Produto("WII", 1939, 34, "Console"));
-		produtos.add(new Produto("IPHONE 5", 1499, 2234, "Mobile/Tablet"));
-		produtos.add(new Produto("IPHONE 6", 3999, 1234, "Mobile/Tablet"));
-		produtos.add(new Produto("IPHONE 7", 4999, 567, "Mobile/Tablet"));
-		produtos.add(new Produto("NOTEBOOK DELL i7", 4499, 340, "Notebook"));
-		produtos.add(new Produto("NOTEBOOK SONY ", 2499, 234, "Notebook"));
-		produtos.add(new Produto("NOTEBOOK LENOVO ", 1199, 455, "Notebook"));
+		produtos.add(new Produto(1,"PS3", 999, 250, "Console"));
+		produtos.add(new Produto(2,"PS4", 1999, 564, "Console"));
+		produtos.add(new Produto(3,"XBOX", 999, 245, "Console"));
+		produtos.add(new Produto(4,"WII", 1939, 34, "Console"));
+		produtos.add(new Produto(5,"IPHONE 5", 1499, 2234, "Mobile/Tablet"));
+		produtos.add(new Produto(6,"IPHONE 6", 3999, 1234, "Mobile/Tablet"));
+		produtos.add(new Produto(7,"IPHONE 7", 4999, 567, "Mobile/Tablet"));
+		produtos.add(new Produto(8,"NOTEBOOK DELL i7", 4499, 340, "Notebook"));
+		produtos.add(new Produto(9,"NOTEBOOK SONY ", 2499, 234, "Notebook"));
+		produtos.add(new Produto(10,"NOTEBOOK LENOVO ", 1199, 455, "Notebook"));
 		
 		listaCategoria = new SelectItem[4];
 		listaCategoria[0] = new SelectItem("","Selecione");
@@ -65,4 +68,12 @@ public class DataGridbean {
 		this.produtoSelecionado = produtoSelecionado;
 	}
 
+	public Produto[] getProdutosSelecionado() {
+		return produtosSelecionado;
+	}
+
+	public void setProdutosSelecionado(Produto[] produtosSelecionado) {
+		this.produtosSelecionado = produtosSelecionado;
+	}
+	
 }
