@@ -1,0 +1,47 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"> 
+
+<h:head>
+
+</h:head> 
+
+<body> 
+	<p:growl id="growl" showDetail="true" life="5000"/>
+		<h:outputLink id="loginlk" value="javascript:void(0)" onclick="PF('dialogoAutenticacao').show()" title="login">
+			Autenticar
+		</h:outputLink>
+		
+		<p:dialog id="dialog" header="Login" widgetVar="dialogoAutenticacao">
+			<h:form>
+				<h:panelGrid columns="2" cellpadding="3">
+					<h:outputLabel for="usuario" value="Usuario:"/>
+					<p:inputText id="usuario" value="#{loginBean.usuario.login}" required="true" label="usuario"/>
+					
+					<h:outputLabel for="senha" value="Senha:"/>
+					<p:inputText id="senha" value="#{loginBean.usuario.senha}" required="true" label="senha" type="password"/>
+					
+					<f:facet name="footer">
+						<p:commandButton id="btnLogin" value="Login" update="growl" actionListener="#{loginBean.login}" oncomplete="tratarLogin(xhr,status,args)"/>
+					</f:facet>
+				</h:panelGrid>
+			</h:form>
+		</p:dialog>
+		
+		<script type="text/javascript">
+			function tratarLogin(xhr, status,args) {
+				if(!args.logado){
+					jQuery("#dialog").effect("shake", {
+						times: 3
+						}, 100);
+					}else{
+						PF('dialogoAutenticacao').hide();
+						jQuery("#loginlk").fadeOut();
+					}
+			}
+		</script>
+</body> 
+</html>

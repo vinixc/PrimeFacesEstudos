@@ -24,10 +24,10 @@
 			</h:panelGrid>
 			
 		</h:form>
-		<p:commandButton id="enviarForm" value="Enviar" update="result" oncomplete="PF('dialogoLogin').hide()"></p:commandButton>
+		<p:commandButton id="enviarForm" value="Enviar" update="dadosLogin" oncomplete="PF('dialogoLogin').hide()"></p:commandButton>
 	</p:dialog>	
 	
-	<p:outputPanel id="dadosLogin">
+	<p:outputPanel id="dadosLogin" rendered="#{!empty usuarioBean.usuario}">
 		<h:outputText id="result" value="Você esta autenticado com o Login: #{usuarioBean.usuario.login}"/>
 	</p:outputPanel>
 </body> 
