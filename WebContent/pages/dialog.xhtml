@@ -1,0 +1,42 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"> 
+
+<h:head>
+
+</h:head> 
+
+<body> 
+	<h:form id="form">
+		<h:panelGrid columns="1">
+			<p:commandButton id="simples" value="Simples" onclick="PF('dialog1').show()" type="button" style="width:150px"/>
+			<p:commandButton id="modalDialogo" value="Modal" onclick="PF('dialog2').show()" type="button" style="width:150px"/>
+			<p:commandButton id="efeitoDialogo" value="Efeito" onclick="PF('dialog3').show()" type="button" style="width:150px"/>
+			<p:commandButton id="efeitoModalDialogo" value="Efeito Modal" onclick="PF('dialog4').show()" type="button" style="width:150px"/>
+		</h:panelGrid>
+		
+		<p:dialog id="simplesDialog" header="Simples Dialog" widgetVar="dialog1">
+			<h:outputText value="MINHA PRIMEIRA  DIALOG COM PRIMEFACES"/>
+		</p:dialog>
+		
+		<p:dialog id="modalDialog" header="Modal Dialog" widgetVar="dialog2"
+		modal="true">
+			<h:outputText value="MINHA PRIMEIRA  DIALOG COM MODAL USANDO PRIMEFACES"/>
+		</p:dialog>
+		
+		<p:dialog id="efeitoDialog" header="Efeito Dialog" widgetVar="dialog3" showEffect="slide" hideEffect="explode">
+			<h:outputText value="MINHA PRIMEIRA  DIALOG COM EFEITO USANDO PRIMEFACES"/>
+		</p:dialog>
+		
+		<!-- EFEITOS
+		fade, toggle, explode, slide, queue -->
+		<p:dialog id="efeitoModalDialog" header="Efeito Modal Dialog" widgetVar="dialog4" showEffect="slide" hideEffect="explode" modal="true">
+			<h:outputText value="MINHA PRIMEIRA  DIALOG  MODAL COM EFEITO USANDO PRIMEFACES"/>
+		</p:dialog>
+		
+	</h:form>	
+</body> 
+</html>
