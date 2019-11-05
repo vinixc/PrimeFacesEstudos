@@ -1,0 +1,64 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"> 
+
+<h:head>
+
+</h:head> 
+
+<body> 
+	<h:form id="form">
+	<p:growl id="growl" showDetail="true"/>
+		<p:dataTable value="#{dataGridbean.produtos}" var="produto"
+		paginator="true" rows="10"
+		paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+		rowsPerPageTemplate="3,5,10"
+		rowKey="#{produto.id}" selectionMode="single" selection="#{dataGridbean.produtoSelecionado}">
+		
+			<f:facet name="header">
+				Lista de produtos
+			</f:facet>
+			
+			<f:facet name="footer">
+				Produtos Comercializados por ViniCarv
+			</f:facet>
+			
+			<p:ajax event="rowSelect" listener="#{dataGridbean.onRowSelect}"
+			update=":form:detalhes :form:growl" oncomplete="PF('produto').show()"/>
+			
+			<p:ajax event="rowUnselect" listener="#{dataGridbean.onRowUnselect}"
+			update=":form:growl"/>
+			
+			<p:column headerText="Nome" sortBy="#{produto.nome}" filterBy="#{produto.nome}" filterMatchMode="contains">
+				<h:outputText value="#{produto.nome}"/>
+			</p:column>
+			<p:column headerText="Valor" sortBy="#{produto.valor}" filterBy="#{produto.valor}" filterMatchMode="startsWith">
+				<h:outputText value="#{produto.valor}"/>
+			</p:column>
+			<p:column headerText="Total Vendas" sortBy="#{produto.totalVendas}" filterBy="#{produto.totalVendas}" filterMatchMode="exact">
+				<h:outputText value="#{produto.totalVendas}"/>
+			</p:column>
+			
+			<p:column headerText="Categoria" sortBy="#{produto.categoria}" 
+			 filterBy="#{produto.categoria}" filterMatchMode="exact"
+			 filterOptions="#{dataGridbean.listaCategoria}">
+				<h:outputText value="#{produto.categoria}"/>
+			</p:column>
+			
+			<f:facet name="footer">
+				<p:commandButton id="selectButton" update=":form:detalhes" oncomplete="PF('produto').show()" icon="ui-icon-search" title="Detalhes"/>
+			</f:facet>
+		</p:dataTable>
+		
+		<p:dialog header="Detalhes do Produto" widgetVar="produto" resizable="false" id="produtoDialog"
+		showEffect="fade" hideEffect="explode" modal="true">
+			<p:dataList id="detalhes" value="#{dataGridbean.produtoSelecionado}" var="produtoSelecionado" type="definition">
+				Nome do Produto: #{produtoSelecionado.nome}, Nome da Categoria: #{produtoSelecionado.categoria} 			
+			</p:dataList>
+		</p:dialog>
+	</h:form>	
+</body> 
+</html>

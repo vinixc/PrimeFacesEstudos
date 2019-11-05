@@ -3,9 +3,14 @@ package hello.bean;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
+import javax.faces.context.FacesContext;
 import javax.faces.model.SelectItem;
+
+import org.primefaces.event.SelectEvent;
+import org.primefaces.event.UnselectEvent;
 
 import hello.entidade.Produto;
 
@@ -42,6 +47,16 @@ public class DataGridbean {
 		listaCategoria[3] = new SelectItem("Notebook","Notebook");
 
 
+	}
+	
+	public void onRowSelect(SelectEvent event) {
+		FacesMessage msg = new FacesMessage("Produto Selecionado", ((Produto)event.getObject()).getNome());
+		FacesContext.getCurrentInstance().addMessage(null, msg);
+	}
+	
+	public void onRowUnselect(UnselectEvent event) {
+		FacesMessage msg = new FacesMessage("Seleçao removida", ((Produto)event.getObject()).getNome());
+		FacesContext.getCurrentInstance().addMessage(null, msg);
 	}
 
 	public List<Produto> getProdutos() {
